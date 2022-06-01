@@ -1,15 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header>
+      <span id="high-scores"> HighScore: </span
+      ><span> Time Remaining: <span id="time">0</span></span>
+    </header>
 
+    <main>
+      <section id="intro"></section>
+      <h2>Coding quiz</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum cumque
+        praesentium architecto, impedit illum harum asperiores inventore earum
+        laudantium fuga iusto suscipit eligendi ullam necessitatibus temporibus
+        aut numquam vel veritatis.
+      </p>
+      <button id="start-quiz"> Start Game</button>
+
+      <section id="qa-view" class="hide">
+        <h3 id="title">Question 1</h3>
+            <ul>
+                <li><button id="answer1">Answer1</button></li>
+                <li><button id="answer2">Answer2</button></li>
+                <li><button id="answer3">Answer3</button></li>
+                <li><button id="answer4">Answer4</button></li>
+            </ul>
+        </section>
+
+      <section id="input-init" class="hide">
+            <input type="text" id="enter-init">
+            <button id="save">Save</button>
+        </section>
+
+      <section id="dashboard" class="hide">
+            <ul>
+                <li> dd-10</li>
+                <li> dd-11</li>
+
+            </ul>
+        </section>
+
+    </main>
 
     <script src="./quiz.js"></script>
-</body>
+  </body>
 </html>
