@@ -7,6 +7,10 @@ var answer2El= document.querySelector("#answer2")
 var answer3El= document.querySelector("#answer3")
 var answer4El= document.querySelector("#answer4")
 var startQuizBtn =  document.querySelector("#start-quiz")
+var initalEL = document.querySelector("#inital")
+var timeRemaining=75 
+var clockid
+var highScoreBtn = document.querySelector("#highScore")
 
 /*
 Step 1: display start page including title, start button and paragraph - start button will trigger quiz game and display timer and questions
@@ -21,17 +25,17 @@ Step 4: show dashboard of all high score
  */
 
 
-var timeRemaining=75 // for each 5questions
-var clockid
 
-var question=[{
-title:"In JavaScript, what element is used to store muliple values in a single variable?",
+ 
+
+const question=[{
+title:"In JavaScript, what element is used to store multiple values in a single variable?",
 answers:["Strings","Functions","Arrays","Variables"],
 solution: "Arrays"
 
 },{
 
-    title:"What is the format called that ised for storing and transporting data?",
+    title:"What is the format called that used for storing and transporting data?",
 answers:["HTML","Syntax","JSON","Font"],
 solution: "JSON"
 },{
@@ -46,10 +50,12 @@ answers:["HTML","Swift","JavaScript","Ruby"],
 solution: "JavaScript"
 },{
 
-    title:"in JavaScript, what is a blocl of code called that is used ti perform a specific task?",
+    title:"In JavaScript, what is a block of code called that is used to perform a specific task?",
 answers:["String","Variable","Declaration","Function"],
 solution: "Function"
 }]
+
+var answeredEL = ["solution"]
 
 var index=0
 
@@ -73,15 +79,41 @@ function displayQuestions(){
      answer4El.textContent=question[index].answers[3]
 }
 
+
+
+
 function nextQuestion()
+
+// if (index = 0;  index <index.length; index++ ){
+    // displaySolution
+// displayQuestions()} 
+// else {function input(initalEL)}
 {
-    index++
+
+   index++
     displayQuestions()
 }
+
+
+
+
+    
+function endOfGame () {
+    clearInterval (timerEl)
+    countDown.innerHTML="Finished"
+    timer = 75
+    score = 0
+    clearQuestion()
+}
+
+
+
 answer1El.addEventListener("click",nextQuestion)
 answer2El.addEventListener("click",nextQuestion)
 answer3El.addEventListener("click",nextQuestion)
 answer4El.addEventListener("click",nextQuestion)
 
 
+
 startQuizBtn.addEventListener("click",startGame)
+
