@@ -8,9 +8,6 @@ var answer3El= document.querySelector("#answer3")
 var answer4El= document.querySelector("#answer4")
 var startQuizBtn =  document.querySelector("#start-quiz")
 var initalEL = document.querySelector("#inital")
-var timeRemaining=75 
-var clockid
-var highScoreBtn = document.querySelector("#highScore")
 
 /*
 Step 1: display start page including title, start button and paragraph - start button will trigger quiz game and display timer and questions
@@ -20,37 +17,34 @@ Step 2 : timer will start when the start button clicked from start page, display
 Step 3: Once all questions answer, input needed from user for initial with submit button. timer stop and time left will be the score of the quiz.when you click the submit if initialm it store scroew in local storage.
 
 Step 4: show dashboard of all high score
-
-
  */
 
-
-
- 
+var timeRemaining=75 
+var clockid
 
 const question=[{
-title:"In JavaScript, what element is used to store multiple values in a single variable?",
+titles:"In JavaScript, what element is used to store multiple values in a single variable?",
 answers:["Strings","Functions","Arrays","Variables"],
 solution: "Arrays"
 
 },{
 
-    title:"What is the format called that used for storing and transporting data?",
+    titles:"What is the format called that used for storing and transporting data?",
 answers:["HTML","Syntax","JSON","Font"],
 solution: "JSON"
 },{
 
-    title:"What elemets are used to test for True or False values stored in variables?",
+    titles:"What elemets are used to test for True or False values stored in variables?",
 answers:["Trigger readers","Regular Expressions","Comparison and logical operators","Conditional statement"],
 solution: "Comparison and logical operators"
 },{
 
-    title:"What is considered to be the most popular programming language in the world?",
+    titles:"What is considered to be the most popular programming language in the world?",
 answers:["HTML","Swift","JavaScript","Ruby"],
 solution: "JavaScript"
 },{
 
-    title:"In JavaScript, what is a block of code called that is used to perform a specific task?",
+    titles:"In JavaScript, what is a block of code called that is used to perform a specific task?",
 answers:["String","Variable","Declaration","Function"],
 solution: "Function"
 }]
@@ -72,7 +66,7 @@ function startGame(){
 }
 
 function displayQuestions(){
-    titleEl.textContent=question[index].title
+    titleEl.textContent=question[index].titles
     answer1El.textContent=question[index].answers[0]
      answer2El.textContent=question[index].answers[1]
      answer3El.textContent=question[index].answers[2]
@@ -85,9 +79,10 @@ function displayQuestions(){
 function nextQuestion()
 
 // if (index = 0;  index <index.length; index++ ){
-    // displaySolution
+//     displaySolution
 // displayQuestions()} 
 // else {function input(initalEL)}
+
 {
 
    index++
