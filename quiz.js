@@ -7,7 +7,9 @@ var answer2El= document.querySelector("#answer2")
 var answer3El= document.querySelector("#answer3")
 var answer4El= document.querySelector("#answer4")
 var startQuizBtn =  document.querySelector("#start-quiz")
+var saveBtn =  document.querySelector("#save")
 var initalEL = document.querySelector("#inital")
+var inputeEl = document.querySelector("#input-init")
 
 /*
 Step 1: display start page including title, start button and paragraph - start button will trigger quiz game and display timer and questions
@@ -84,9 +86,17 @@ function nextQuestion()
 // else {function input(initalEL)}
 
 {
-
-   index++
-    displayQuestions()
+    document.querySelector(".solution").textContent=question[index].solution
+   console.log (question[index].solution)
+    if(index >= question.length-1){
+        //game over
+        endOfGame ()
+    }
+    else {
+        index++
+        displayQuestions()
+    }
+   
 }
 
 
@@ -94,13 +104,34 @@ function nextQuestion()
 
     
 function endOfGame () {
-    clearInterval (timerEl)
+    clearInterval (clockid)
+
     countDown.innerHTML="Finished"
     timer = 75
     score = 0
     clearQuestion()
 }
 
+function clearQuestion() {
+    qaViewEl.classList.add("hide")
+    introEl.classList.remove("hide")
+    inputeEl.classList.remove("hide")
+    
+}
+function saveScore ()
+{
+    var initial = document.querySelector("#enter-init").value 
+    var score =timerEl.textContent
+    localStorage.setItem("highScore", initial + " " + score)
+    var scoreDash = document.querySelector("#dashboard")
+    scoreDash.classList.remove("hide")
+    inputeEl.classList.add("hide")
+    startQuizBtn.classList.add("hide")
+    var newHighscore = document.querySelector ("#newHighscore")
+    newHighscore.textContent= localStorage.getItem("highScore")
+
+
+}
 
 
 answer1El.addEventListener("click",nextQuestion)
@@ -111,4 +142,4 @@ answer4El.addEventListener("click",nextQuestion)
 
 
 startQuizBtn.addEventListener("click",startGame)
-
+saveBtn.addEventListener("click",saveScore)
